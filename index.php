@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Grave History</title>
-</head>
-<body>
+<?php include("layouts/top.php"); ?>
 
-<h1>Coming soon...</h1>
+<h1>WOW</h1>
 
-</body>
-</html>
+<?php include("layouts/bottom.php"); ?>
