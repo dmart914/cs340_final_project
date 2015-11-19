@@ -1,3 +1,5 @@
+<?php include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
