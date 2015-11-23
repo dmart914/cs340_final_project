@@ -20,7 +20,7 @@
             <li class="name">
               <h1>
                 <a href="#">
-                  Top Bar Title
+                  Home
                 </a>
               </h1>
             </li>
@@ -29,8 +29,8 @@
    
           <section class="top-bar-section">
             <ul class="left">
-              <li><a href="#">Link 1</a></li>
-              <li><a href="#">Link 2</a></li>
+              <li><a href="browse.php">View</a></li>
+              <li><a href="#">Submit</a></li>
             </ul>
    
             <ul class="right">
