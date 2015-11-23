@@ -6,6 +6,8 @@
 
 <p>&lt;Sorting options here&gt;</p>
 
+
+<!-- Use joins to grab dates and locations for each person -->
 <?php 
 	$statement = $database->prepare('SELECT first_name, middle_name, last_name FROM person ORDER BY last_name LIMIT 10');
 	$statement->execute();
@@ -20,6 +22,7 @@
 				echo ' ' .ucfirst($row['middle_name']);
 			echo "</td>";
 		}
+		echo "<td>Birthdate - death date?</td><td>Grave location?</td>";
 		echo "</tr>";
 	};
 	echo "</table>";
