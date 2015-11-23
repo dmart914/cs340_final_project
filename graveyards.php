@@ -9,7 +9,7 @@
 
 <!-- TODO: Pagination; number of occupants registered? -->
 <?php 
-	$statement = $database->prepare('SELECT id, name, city FROM graveyard ORDER BY name LIMIT 10');
+	$statement = $database->prepare('SELECT id, name, city, state FROM graveyard ORDER BY name LIMIT 10');
 	$statement->execute();
 
 	echo "<table>";
@@ -21,7 +21,18 @@
 				echo "</a>";
 			echo "</td>";
 			echo "<td>";
-				echo ucfirst($row['city']);
+				if($row['city'])
+				{
+					echo ucfirst($row['city']);
+				}
+				if($row['city'] && $row['state'])
+				{
+					echo ", ";
+				}
+				if($row['state'])
+				{
+					echo ucfirst($row['state']);
+				}
 			echo "</td>";
 		echo "</tr>";
 	};

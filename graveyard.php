@@ -9,6 +9,7 @@
 		$street1 = "";
 		$street2 = "";
 		$city = "";
+		$state = "";
 		$zip = "";
 		$contact = "";
 
@@ -31,9 +32,13 @@
 			{
 				$city = ucfirst($row['city']);
 			}
+			if($row['state'])
+			{
+				$state = ucfirst($row['state']);
+			}
 			if($row['zip'])
 			{
-				$zip = ucfirst($row['zip']);
+				$zip = $row['zip'];
 			}
 			if($row['contact'])
 			{
