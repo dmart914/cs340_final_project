@@ -19,8 +19,8 @@
              
             <li class="name">
               <h1>
-                <a href="#">
-                  Home
+                <a href="index.php">
+                  Grave History
                 </a>
               </h1>
             </li>
