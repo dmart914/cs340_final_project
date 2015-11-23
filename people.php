@@ -9,17 +9,19 @@
 
 <!-- TODO: Use joins to grab dates and locations for each person -->
 <?php 
-	$statement = $database->prepare('SELECT first_name, middle_name, last_name FROM person ORDER BY last_name LIMIT 10');
+	$statement = $database->prepare('SELECT id, first_name, middle_name, last_name FROM person ORDER BY last_name LIMIT 10');
 	$statement->execute();
 
 	echo "<table>";
 	while ($row = $statement->fetch()) {
 		echo "<tr>";
 			echo "<td>";
+			echo "<a href='person.php?id=".$row['id']."'>";
 			echo ucfirst($row['last_name']).', ';
 			echo ' ' .ucfirst($row['first_name']);
 			if ($row['middle_name']) {
 				echo ' ' .ucfirst($row['middle_name']);
+			echo "</a>";
 			echo "</td>";
 		}
 		echo "<td>Birthdate - death date?</td><td>Grave location?</td>";
@@ -27,6 +29,5 @@
 	};
 	echo "</table>";
 ?>
-
 
 <?php include("layouts/bottom.php"); ?>
