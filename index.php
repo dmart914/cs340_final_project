@@ -4,6 +4,8 @@
 
 <h4 class="subheader">Preserving historical graveyard information for researchers, cemetery districts and the curious</h4>
 
+<!-- Maybe here could go either some background on historical graveyards, or examples of the latest listings -->
+
 <h4>Graveyards:</h4>
 <ul>
 <?php 
