@@ -1,6 +1,6 @@
 <?php include("layouts/top.php"); ?>
 
-<h1>View Records</h1>
+<h1>Browse Records</h1>
 
 <h4 class="subheader">&lt;BLURB HERE&gt;</h4>
 
