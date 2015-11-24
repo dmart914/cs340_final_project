@@ -64,6 +64,8 @@
 			echo "<li>Cause of death: ".$cause_of_death."</li>";
 			echo "<li>&lt;etc&gt;</li>";
 		echo "</ul>";
+
+		echo "<a class='tiny button' href='#'>Edit Entry</a>";
 	}
 ?>
 

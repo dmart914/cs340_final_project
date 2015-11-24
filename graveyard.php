@@ -113,6 +113,8 @@
 			echo "</tr>";
 		}
 		echo "</table>";
+
+		echo "<a class='tiny button' href='#'>Edit Entry</a>";
 	}
 ?>
 

@@ -25,6 +25,8 @@
 		echo "</h4>";
 
 		echo "<p>&lt;Family information here&gt;</p>";
+
+		echo "<a class='tiny button' href='#'>Edit Entry</a>";
 	}
 ?>
 
