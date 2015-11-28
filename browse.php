@@ -5,11 +5,11 @@
 <h4 class="subheader">&lt;BLURB HERE&gt;</h4>
 
 <h4>View records by:</h4>
-<ul>
-	<li><a href="people.php">Name of Deceased</a></li>
-	<li><a href="families.php">Family</a></li>
-	<li><a href="graveyards.php">Cemetery or Graveyard</a></li>
-	<li><a href="plots.php">Geographical Area</a></li>
+<ul class="button-group">
+	<li><a href="people.php" class="button">Name of Deceased</a></li>
+	<li><a href="families.php" class="button">Family</a></li>
+	<li><a href="graveyards.php" class="button">Cemetery or Graveyard</a></li>
+	<!-- <li><a href="plots.php">Geographical Area</a></li> -->
 </ul>
 
 

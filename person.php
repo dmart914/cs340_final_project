@@ -1,6 +1,6 @@
 <?php include("layouts/top.php"); ?>
 
-<h2>View Record</h2>
+<h4 class="subheader">View Record</h4>
 
 <!-- TODO: List family members, link to family page, list burial information -->
 
@@ -44,26 +44,26 @@
 				$cause_of_death = ucfirst($row['cause_of_death']);
 			}
 		}
-		echo "<h4 class='subheader'>";
+		echo "<h2>";
 		echo $first_name;
 		if($middle_name != "unknown")
 		{
 			echo " ".$middle_name;
 		}
 		echo " ".$last_name;
-		echo "</h4>";
+		echo "</h2>";
 
-		echo "<ul>";
-			echo "<li>Born: ".$birthdate."</li>";
-			echo "<li>Died: ".$death_date;
+		echo "<dl>";
+			echo "<dt>Born:</dt><dd>".$birthdate."</dd>";
+			echo "<dt>Died:</dt><dd>".$death_date;
 			if($death_location != "unknown")
 			{
 				echo " in ".$death_location;
 			}
-			echo "</li>";
-			echo "<li>Cause of death: ".$cause_of_death."</li>";
-			echo "<li>&lt;etc&gt;</li>";
-		echo "</ul>";
+			echo "</dd>";
+			echo "<dt>Cause of death:</dt><dd>".$cause_of_death."</dd>";
+			echo "<dt>&lt;etc&gt;</dt>";
+		echo "</dl>";
 
 		echo "<a class='tiny button' href='#'>Edit Entry</a>";
 	}
