@@ -31,7 +31,7 @@
             <ul class="left">
               <li><a href="browse.php">Browse</a></li>
               <li><a href="#">Search</a></li>
-              <li><a href="#">Submit</a></li>
+              <li><a href="submit.php">Submit</a></li>
             </ul>
    
             <ul class="right">
