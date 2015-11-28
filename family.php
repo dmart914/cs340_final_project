@@ -6,7 +6,7 @@
 	if($_GET["id"])
 	{
 		$name = "";
-		$origin = "";
+		$origin = "unknown";
 
 		$statement = $database->prepare('SELECT name, origin FROM family WHERE id= :id');
 		$statement->bindParam(":id", $_GET["id"]);
@@ -24,7 +24,33 @@
 		echo "The ".$name." Family";
 		echo "</h4>";
 
-		echo "<p>&lt;Family information here&gt;</p>";
+		echo "<dl><dt>Origin</dt><dd>".ucfirst($origin)."</dd></dl>";
+
+		$statement = $database->prepare('SELECT p.id, p.first_name, p.middle_name, p.last_name FROM person AS p WHERE p.family_id= :id');
+		$statement->bindParam(":id", $_GET["id"]);
+		$statement->execute();
+
+		echo "<h5>Registered members</h5>";
+		echo "<table>";
+		while($row = $statement->fetch())
+		{
+			echo "<tr>";
+				echo "<td>";
+					echo "<a href='person.php?id=".$row['id']."'>";
+					echo ucfirst($row['last_name']);
+					if($row['first_name'])
+					{
+						echo ", ".ucfirst($row['first_name']);
+					}
+					if($row['middle_name'])
+					{
+						echo " ".ucfirst($row['middle_name']);
+					}
+					echo "</a>";
+				echo "</td>";
+			echo "</tr>";
+		}
+		echo "</table>";
 
 		echo "<a class='tiny button' href='#'>Edit Entry</a>";
 	}
