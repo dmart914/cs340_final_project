@@ -1,6 +1,6 @@
 <?php include("layouts/top.php"); ?>
 
-<h2>View Record</h2>
+<h4 class="subheader">View Record</h4>
 
 <?php
 	if($_GET["id"])
@@ -45,9 +45,9 @@
 				$contact = ucfirst($row['contact']);
 			}
 		}
-		echo "<h4 class='subheader'>";
+		echo "<h3>";
 		echo $name;
-		echo "</h4>";
+		echo "</h3>";
 
 		echo "<p>";
 			if(strlen($street1) > 0)

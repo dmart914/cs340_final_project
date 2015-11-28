@@ -44,14 +44,14 @@
 				$cause_of_death = ucfirst($row['cause_of_death']);
 			}
 		}
-		echo "<h2>";
+		echo "<h3>";
 		echo $first_name;
 		if($middle_name != "unknown")
 		{
 			echo " ".$middle_name;
 		}
 		echo " ".$last_name;
-		echo "</h2>";
+		echo "</h3>";
 
 		echo "<dl>";
 			echo "<dt>Born:</dt><dd>".$birthdate."</dd>";
