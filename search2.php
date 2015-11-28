@@ -33,11 +33,53 @@
 				echo "<div class='small-6 columns'>";
 				echo "</div>";
 			echo "</div>";
+
+			echo "<div class='row'>";
+				echo "<div class='small-2 columns'>";
+					echo "<label>Birth year";
+					echo "<input type='text'>";
+					echo "</label>";
+				echo "</div>";
+				echo "<div class='small-2 columns'>";
+					echo "<label>Death year";
+					echo "<input type='text'>";
+					echo "</label>";
+				echo "</div>";
+				echo "<div class='small-8 columns'>";
+				echo "</div>";
+			echo "</div>";
+
+			echo "<div class='row'>";
+				echo "<div class='small-6 columns'>";
+					echo "<label>Cause of death";
+					echo "<input type='text'>";
+					echo "</label>";
+				echo "</div>";
+				echo "<div class='small-6 columns'>";
+				echo "</div>";
+			echo "</div>";
 		echo "</form>";
+		echo "<a href='#' class='button'>Search</a>";
 	}
 	elseif ($_GET["find"] == "family")
 	{
-		# code...
+		echo "<form>";
+			echo "<div class='row'>";
+				echo "<div class='small-2 columns'>";
+					echo "<label>Family name";
+					echo "<input type='text'>";
+					echo "</label>";
+				echo "</div>";
+				echo "<div class='small-4 columns'>";
+					echo "<label>Place of origin";
+					echo "<input type='text'>";
+					echo "</label>";
+				echo "</div>";
+				echo "<div class='small-6 columns'>";
+				echo "</div>";
+			echo "</div>";
+		echo "</form>";
+		echo "<a href='#' class='button'>Search</a>";
 	}
 	elseif ($_GET["find"] == "graveyard")
 	{
