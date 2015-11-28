@@ -30,6 +30,7 @@
           <section class="top-bar-section">
             <ul class="left">
               <li><a href="browse.php">Browse</a></li>
+              <li><a href="#">Search</a></li>
               <li><a href="#">Submit</a></li>
             </ul>
    
