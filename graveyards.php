@@ -2,7 +2,7 @@
 
 <h3>View Records by Cemetery</h3>
 
-<h4 class="subheader">&lt;BLURB HERE&gt;</h4>
+<!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 
 <p>&lt;Sorting options here&gt;</p>
 

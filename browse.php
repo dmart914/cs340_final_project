@@ -2,7 +2,7 @@
 
 <h3>Browse Records</h3>
 
-<h4 class="subheader">&lt;BLURB HERE&gt;</h4>
+<!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 
 <h5>View records by:</h5>
 <ul class="button-group">
