@@ -1,6 +1,6 @@
 <?php include("layouts/top.php"); ?>
 
-<h2>View Records by Cemetery</h2>
+<h3>View Records by Cemetery</h3>
 
 <h4 class="subheader">&lt;BLURB HERE&gt;</h4>
 

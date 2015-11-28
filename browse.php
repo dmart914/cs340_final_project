@@ -1,10 +1,10 @@
 <?php include("layouts/top.php"); ?>
 
-<h1>Browse Records</h1>
+<h3>Browse Records</h3>
 
 <h4 class="subheader">&lt;BLURB HERE&gt;</h4>
 
-<h4>View records by:</h4>
+<h5>View records by:</h5>
 <ul class="button-group">
 	<li><a href="people.php" class="button">Name of Deceased</a></li>
 	<li><a href="families.php" class="button">Family</a></li>
