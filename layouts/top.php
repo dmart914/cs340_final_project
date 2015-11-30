@@ -36,13 +36,14 @@
    
             <ul class="right">
               <li class="search">
-                <form>
-                  <input type="search">
-                </form>
+                <form action="searchResults.php" method="post">
+                  <input type="search" name="searchString">
               </li>
    
               <li class="has-button">
-                <a class="small button" href="#">Search</a>
+                <!-- <a class="small button" href="#">Search</a> -->
+                  <input type="submit" value="Search" class="tiny button">
+                </form>
               </li>
             </ul>
           </section>
