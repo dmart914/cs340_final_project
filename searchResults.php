@@ -95,18 +95,38 @@
 
 		# Search graveyards
 		$statement = $database->prepare(
-			'SELECT
-			 FROM 
-			 WHERE 
-			 GROUP BY 
-			 ORDER BY 
-			 LIMIT ');
+			'SELECT id, name, city, state
+			 FROM graveyard
+			 WHERE LOWER(name) LIKE :searchString
+			 ORDER BY name
+			 LIMIT 50');
+		$statement->bindParam(":searchString", $searchParam);
 		$statement->execute();
 
+		echo "<dl>";
 		while($row = $statement->fetch())
 		{
-			
+			echo "<dt>";
+				echo "<a href='graveyard.php?id=".$row['id']."'>";
+				echo ucfirst($row['name']);
+				echo "</a>";
+			echo "</dt>";
+			echo "<dd><h6>";
+				if($row['city'])
+				{
+					echo ucfirst($row['city']);
+				}
+				if($row['city'] && $row['state'])
+				{
+					echo ", ";
+				}
+				if($row['state'])
+				{
+					echo ucfirst($row['state']);
+				}
+			echo "</h6></dd>";
 		}
+		echo "</dl>";
 	}
 	
 ?>
