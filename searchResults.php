@@ -8,6 +8,7 @@
 <!-- TODO: Handle zero results and empty search string -->
 
 <?php
+	$foundResults = False;
 	$searchString = "";
 	if($_POST['searchString'])
 	{
@@ -17,7 +18,7 @@
 
 	if(!$_POST['searchString'])
 	{
-		# Handle empty search string here
+		echo "<h3><small>Enter text above to search grave records.</small></h3>";
 	}
 
 	else
@@ -40,6 +41,7 @@
 		echo "<dl>";
 		while($row = $statement->fetch())
 		{
+			$foundResults = True;
 			echo "<dt>";
 				echo "<a href='person.php?id=".$row['id']."'>";
 				echo ucfirst($row['last_name']);
@@ -79,6 +81,7 @@
 		echo "<dl>";
 		while($row = $statement->fetch())
 		{
+			$foundResults = True;
 			echo "<dt>";
 				echo "<a href='family.php?id=".$row['id']."'>";
 				echo "The ".ucfirst($row['name'])." Family";
@@ -106,6 +109,7 @@
 		echo "<dl>";
 		while($row = $statement->fetch())
 		{
+			$foundResults = True;
 			echo "<dt>";
 				echo "<a href='graveyard.php?id=".$row['id']."'>";
 				echo ucfirst($row['name']);
@@ -127,6 +131,11 @@
 			echo "</h6></dd>";
 		}
 		echo "</dl>";
+
+		if(!$foundResults)
+		{
+			echo "<h2><small>No matches found.</small></h2>";
+		}
 	}
 	
 ?>
