@@ -4,6 +4,9 @@
 
 <!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 
+<!-- TODO: Pagination of search results -->
+<!-- TODO: Handle zero results and empty search string -->
+
 <?php
 	$searchString = "";
 	if($_POST['searchString'])
@@ -30,7 +33,7 @@
 			 	OR LOWER(last_name) LIKE :searchString
 			 GROUP BY last_name
 			 ORDER BY last_name
-			 LIMIT 10');
+			 LIMIT 50');
 		$statement->bindParam(":searchString", $searchParam);
 		$statement->execute();
 
@@ -65,18 +68,30 @@
 
 		# Search families
 		$statement = $database->prepare(
-			'SELECT
-			 FROM 
-			 WHERE 
-			 GROUP BY 
-			 ORDER BY 
-			 LIMIT ');
+			'SELECT id, name, origin
+			 FROM family
+			 WHERE LOWER(name) LIKE :searchString
+			 ORDER BY name
+			 LIMIT 50');
+		$statement->bindParam(":searchString", $searchParam);
 		$statement->execute();
 
+		echo "<dl>";
 		while($row = $statement->fetch())
 		{
-			
+			echo "<dt>";
+				echo "<a href='family.php?id=".$row['id']."'>";
+				echo "The ".ucfirst($row['name'])." Family";
+				echo "</a>";
+			echo "</dt>";
+			echo "<dd><h6>";
+				if($row['origin'])
+				{
+					echo "Origin: ".ucfirst($row['origin']);
+				}
+			echo "</h6></dd>";
 		}
+		echo "</dl>";
 
 		# Search graveyards
 		$statement = $database->prepare(
