@@ -23,7 +23,7 @@
 
 		# Search people
 		$statement = $database->prepare(
-			'SELECT id, first_name, middle_name, last_name
+			'SELECT id, first_name, middle_name, last_name, birthdate, death_date
 			 FROM person
 			 WHERE LOWER(first_name) LIKE :searchString
 			 	OR LOWER(middle_name) LIKE :searchString
@@ -38,18 +38,28 @@
 		while($row = $statement->fetch())
 		{
 			echo "<dt>";
-			echo "<a href='person.php?id=".$row['id']."'>";
-			echo ucfirst($row['last_name']);
-			if($row['first_name'])
-			{
-				echo ", ".ucfirst($row['first_name']);
-				if($row['middle_name'])
+				echo "<a href='person.php?id=".$row['id']."'>";
+				echo ucfirst($row['last_name']);
+				if($row['first_name'])
 				{
-					echo " ".ucfirst($row['middle_name']);
+					echo ", ".ucfirst($row['first_name']);
+					if($row['middle_name'])
+					{
+						echo " ".ucfirst($row['middle_name']);
+					}
 				}
-			}
-			echo "</a>";
+				echo "</a>";
 			echo "</dt>";
+			echo "<dd><h6>";
+				if($row['birthdate'])
+				{
+					echo "Born ".$row['birthdate'].". ";
+				}
+				if($row['death_date'])
+				{
+					echo "Died ".$row['death_date'].". ";
+				}
+			echo "</h6></dd>";
 		}
 		echo "</dl>";
 
