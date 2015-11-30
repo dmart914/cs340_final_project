@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Grave History</title>
 
     <link rel="stylesheet" href="/cs340_final_project/resources/css/foundation.css" />
     <script src="/cs340_final_project/resources/js/vendor/modernizr.js"></script>
