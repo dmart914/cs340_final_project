@@ -8,6 +8,7 @@
 
 
 <!-- TODO: Pagination; number of occupants registered? -->
+<!-- NOTE: Don't bother with pagination... Takes too much time - DM 12/1/15 -->
 <?php 
 	$statement = $database->prepare('SELECT id, name, city, state FROM graveyard ORDER BY name LIMIT 10');
 	$statement->execute();
