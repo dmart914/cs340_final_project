@@ -65,7 +65,7 @@
 			echo "<dt>&lt;etc&gt;</dt>";
 		echo "</dl>";
 
-		echo "<a class='tiny button' href='#'>Edit Entry</a>";
+		echo "<a class='tiny button' href='people/edit.php'>Edit Entry</a>";
 	}
 ?>
 
