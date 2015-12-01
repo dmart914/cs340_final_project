@@ -62,21 +62,23 @@
 		}
 
 		echo "<h4 class='subheader'>People</h4>";
-		echo "<form>";
+		echo "<form action='edithandler.php' method='POST'>";
+			echo "<input type='hidden' name='id' value='".$_POST['id']."'>";
+
 			echo "<div class='row'>";
 				echo "<div class='small-2 columns'>";
 					echo "<label>First name";
-					echo "<input type='text' placeholder='".$first_name."'>";
+					echo "<input type='text' value='".$first_name."' name='first_name'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-2 columns'>";
 					echo "<label>Middle name";
-					echo "<input type='text' placeholder='".$middle_name."'>";
+					echo "<input type='text' value='".$middle_name."' name='middle_name'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-2 columns'>";
 					echo "<label>Last name";
-					echo "<input type='text' placeholder='".$last_name."'>";
+					echo "<input type='text' value='".$last_name."' name='last_name'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-6 columns'>";
@@ -86,12 +88,12 @@
 			echo "<div class='row'>";
 				echo "<div class='small-2 columns'>";
 					echo "<label>Birth date";
-					echo "<input type='text' placeholder='".$birthdate."'>";
+					echo "<input type='text' value='".$birthdate."' name='birthdate'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-2 columns'>";
 					echo "<label>Death date";
-					echo "<input type='text' placeholder='".$death_date."'>";
+					echo "<input type='text' value='".$death_date."' name='death_date'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-8 columns'>";
@@ -101,7 +103,7 @@
 			echo "<div class='row'>";
 				echo "<div class='small-6 columns'>";
 					echo "<label>Cause of death";
-					echo "<input type='text' placeholder='".$cause_of_death."'>";
+					echo "<input type='text' value='".$cause_of_death."' name='cause_of_death'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-6 columns'>";
@@ -111,19 +113,19 @@
 			echo "<div class='row'>";
 				echo "<div class='small-4 columns'>";
 					echo "<label>Place of death";
-					echo "<input type='text' placeholder='".$death_location."'>";
+					echo "<input type='text' value='".$death_location."' name='death_location'>";
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-8 columns'>";
 				echo "</div>";
 			echo "</div>";
 
-		echo "</form>";
-
 		echo "<div class='row'>";
 			echo "<div class='small-3 columns'>";
-				echo "<a href='#' class='button'>Submit Changes</a>";
+				echo "<input type='submit' class='button' value='Submit Changes'>";
 			echo "</div>";
+		echo "</form>";
+
 			echo "<div class='small-3 columns'>";
 				echo "<a href='#' class='button alert'>Delete Record</a>";
 			echo "</div>";
