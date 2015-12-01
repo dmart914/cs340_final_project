@@ -1,0 +1,25 @@
+#jumbotron {
+	background-image: url(../../resources/img/cemetery1.jpg);
+	height: 400px;
+	background-position: bottom;
+	vertical-align: bottom;
+	background-size: cover;
+}
+
+#jumbotron-content{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+#j-h1{
+	color: white;
+	text-shadow: -1px 0 #222222, 0 1px #222222, 1px 0 #222222, 0 -1px #222222;
+	font-size: 500%;
+	font-weight: bold;
+}
+
+#j-h4{
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

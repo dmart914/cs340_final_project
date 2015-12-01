@@ -1,60 +1,14 @@
 <?php include("layouts/top.php"); ?>
-
-<h1>Grave History </h1>
-
-<h4 class="subheader">Preserving historical graveyard information for researchers, cemetery districts and the curious</h4>
-
-<!-- Maybe here could go either some background on historical graveyards, or examples of the latest listings -->
-
-<h4>Graveyards:</h4>
-<ul>
-<?php 
-	$statement = $database->prepare('SELECT name, city, state FROM graveyard LIMIT 10');
-	$statement->execute();
-	while ($row = $statement->fetch()) {
-		echo "<li>";
-		echo $row['name'] . ' - ';
-		if ($row['city']) {
-			echo $row['city'] . ', ';
-		}
-		echo $row['state'];
-		echo "</li>";
-	};
-?>
-</ul>
-
-<h4>People:</h4>
-<ul>
-<?php 
-	$statement = $database->prepare('SELECT first_name, middle_name, last_name FROM person LIMIT 10');
-	$statement->execute();
-	while ($row = $statement->fetch()) {
-		echo "<li>";
-		echo $row['first_name'];
-		if ($row['middle_name']) {
-			echo ' ' . $row['middle_name'];
-		}
-		echo ' ' . $row['last_name'];
-		echo "</li>";
-	};
-
-?>
-</ul>
-
-
-<h4>Families:</h4>
-<ul>
-<?php 
-	$statement = $database->prepare('SELECT name FROM family LIMIT 10');
-	$statement->execute();
-	while ($row = $statement->fetch()) {
-		echo "<li>";
-		echo $row['name'];
-		echo "</li>";
-	};
-
-?>
-</ul>
-
+<link rel="stylesheet" href="resources/css/index.css" />
+<div class="large-12 columns" id="jumbotron">
+	<div id="jumbotron-content">
+		<h1 id="j-h1">Grave History </h1>
+	</div>
+</div>
+<div class="large-12 columns">
+	<h4>
+		Preserving historical graveyard information for researchers, cemetery districts and the curious.
+	</h4>
+</div>
 
 <?php include("layouts/bottom.php"); ?>
