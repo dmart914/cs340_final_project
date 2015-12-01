@@ -119,7 +119,17 @@
 			echo "</div>";
 
 		echo "</form>";
-		echo "<a href='#' class='button'>Submit Changes</a>";
+
+		echo "<div class='row'>";
+			echo "<div class='small-3 columns'>";
+				echo "<a href='#' class='button'>Submit Changes</a>";
+			echo "</div>";
+			echo "<div class='small-3 columns'>";
+				echo "<a href='#' class='button alert'>Delete Record</a>";
+			echo "</div>";
+			echo "<div class='small-6 columns'>";
+			echo "</div>";
+		echo "</div>";
 	}
 ?>
 
