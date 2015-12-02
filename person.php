@@ -65,7 +65,11 @@
 			echo "<dt>&lt;etc&gt;</dt>";
 		echo "</dl>";
 
-		echo "<a class='tiny button' href='people/edit.php'>Edit Entry</a>";
+		echo "<form action='people/edit.php' method='post'>";
+			echo "<input type='hidden' name='id' value='".$_GET['id']."'>";
+			#echo "<a class='tiny button' href='people/edit.php'>Edit Entry</a>";
+			echo "<input type='submit' class='tiny button' value='Edit Entry'>";
+		echo "</form>";
 	}
 ?>
 
