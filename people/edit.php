@@ -127,7 +127,7 @@
 		echo "</form>";
 
 			echo "<div class='small-3 columns'>";
-				echo "<a href='#' class='button alert'>Delete Record</a>";
+				echo "<a href='confirmdelete.php?id=".$_POST['id']."' class='button alert'>Delete Record</a>";
 			echo "</div>";
 			echo "<div class='small-6 columns'>";
 			echo "</div>";
