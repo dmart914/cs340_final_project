@@ -17,10 +17,10 @@
 		$rel_ins_stmt = $database->prepare($rel_ins_q);
 		$rel_ins_stmt->execute();
 
-		print_r('<pre>');
-		print_r('$rel_ins_stmt: ');
-		var_dump($rel_ins_stmt);
-		print_r('</pre>');
+		#print_r('<pre>');
+		#print_r('$rel_ins_stmt: ');
+		#var_dump($rel_ins_stmt);
+		#print_r('</pre>');
 
 
 
