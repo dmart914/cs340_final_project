@@ -14,6 +14,7 @@
 		$death_date = "unknown";
 		$death_location = "unknown";
 		$cause_of_death = "unknown";
+		$image_path = "none";
 
 		$statement = $database->prepare('SELECT * FROM person WHERE id= :id');
 		$statement->bindParam(":id", $_GET["id"]);
@@ -44,32 +45,47 @@
 				$cause_of_death = ucfirst($row['cause_of_death']);
 			}
 		}
-		echo "<h3>";
-		echo $first_name;
-		if($middle_name != "unknown")
-		{
-			echo " ".$middle_name;
-		}
-		echo " ".$last_name;
-		echo "</h3>";
 
-		echo "<dl>";
-			echo "<dt>Born:</dt><dd>".$birthdate."</dd>";
-			echo "<dt>Died:</dt><dd>".$death_date;
-			if($death_location != "unknown")
-			{
-				echo " in ".$death_location;
-			}
-			echo "</dd>";
-			echo "<dt>Cause of death:</dt><dd>".$cause_of_death."</dd>";
-			echo "<dt>&lt;etc&gt;</dt>";
-		echo "</dl>";
+		echo "<div class='row'>";
+			echo "<div class='small-8 columns'>";
+				echo "<h3>";
+				echo $first_name;
+				if($middle_name != "unknown")
+				{
+					echo " ".$middle_name;
+				}
+				echo " ".$last_name;
+				echo "</h3>";
 
-		echo "<form action='people/edit.php' method='post'>";
-			echo "<input type='hidden' name='id' value='".$_GET['id']."'>";
-			#echo "<a class='tiny button' href='people/edit.php'>Edit Entry</a>";
-			echo "<input type='submit' class='tiny button' value='Edit Entry'>";
-		echo "</form>";
+				echo "<dl>";
+					echo "<dt>Born:</dt><dd>".$birthdate."</dd>";
+					echo "<dt>Died:</dt><dd>".$death_date;
+					if($death_location != "unknown")
+					{
+						echo " in ".$death_location;
+					}
+					echo "</dd>";
+					echo "<dt>Cause of death:</dt><dd>".$cause_of_death."</dd>";
+					echo "<dt>&lt;etc&gt;</dt>";
+				echo "</dl>";
+
+				echo "<form action='people/edit.php' method='post'>";
+					echo "<input type='hidden' name='id' value='".$_GET['id']."'>";
+					echo "<input type='submit' class='tiny button' value='Edit Entry'>";
+				echo "</form>";
+			echo "</div>";
+			echo "<div class='small-4 columns'>";
+				if($image_path == "none")
+				{
+					echo "<h6 class='subheader'><i>No image available.</i></h6>";
+				}
+				else
+				{
+					echo "<img src='".$image_path."' 
+						   	   alt='".$first_name." ".$middle_name." ".$last_name."'>";
+				}
+			echo "</div>";
+		echo "</div>";
 	}
 ?>
 

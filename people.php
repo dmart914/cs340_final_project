@@ -25,11 +25,14 @@
 		echo "<tr>";
 			echo "<td>";
 				echo "<a href='person.php?id=".$row['id']."'>";
-				echo ucfirst($row['last_name']).', ';
-				echo ' ' .ucfirst($row['first_name']);
-				if ($row['middle_name'])
+				echo ucfirst($row['last_name']);
+				if($row['first_name'])
 				{
-					echo ' ' .ucfirst($row['middle_name']);
+					echo ', ' .ucfirst($row['first_name']);
+					if ($row['middle_name'])
+					{
+						echo ' ' .ucfirst($row['middle_name']);
+					}
 				}
 				echo "</a>";
 			echo "</td>";
