@@ -19,7 +19,7 @@
              
             <li class="name">
               <h1>
-                <a href="index.php">
+                <a href="/cs340_final_project/">
                   Grave History
                 </a>
               </h1>
@@ -29,14 +29,14 @@
    
           <section class="top-bar-section">
             <ul class="left">
-              <li><a href="browse.php">Browse</a></li>
-              <li><a href="search.php">Search</a></li>
-              <li><a href="submit.php">Submit</a></li>
+              <li><a href="/cs340_final_project/browse.php">Browse</a></li>
+              <!--<li><a href="/cs340_final_project/search.php">Search</a></li>-->
+              <li><a href="/cs340_final_project/submit.php">Submit</a></li>
             </ul>
    
             <ul class="right">
               <li class="search">
-                <form action="searchResults.php" method="post">
+                <form action="/cs340_final_project/searchResults.php" method="post">
                   <input type="search" name="searchString">
               </li>
    

@@ -5,15 +5,14 @@
         <hr>
         <div class="row">
           <div class="large-6 columns">
-            <p>&copy; Copyright no one at all. Go to town.</p>
+            <p>
+              <strong>Authors:</strong><br>
+              Lucia Blackwell - blackwlu@oregonstate.edu
+              Dave Martinez - martind2@oregonstate.edu
+            </p>
           </div>
           <div class="large-6 columns">
-            <ul class="inline-list right">
-              <li><a href="#">Link 1</a></li>
-              <li><a href="#">Link 2</a></li>
-              <li><a href="#">Link 3</a></li>
-              <li><a href="#">Link 4</a></li>
-            </ul>
+            
           </div>
         </div>
       </div>

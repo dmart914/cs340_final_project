@@ -2,10 +2,6 @@
 
 <?php 
 
-// STILL NEED TO FIGURE OUT HOW TO SET INITIAL
-// VALUE OF GRAVEYARD AND PERSON TO CORRECT
-// VALUES
-
 // Get the ID of the requested object
 print_r('<pre>');
 print_r('$_GET: ');
