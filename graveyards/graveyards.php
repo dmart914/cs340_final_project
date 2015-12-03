@@ -1,4 +1,4 @@
-<?php include("layouts/top.php"); ?>
+<?php include("../layouts/top.php"); ?>
 
 <h3>View Records by Cemetery</h3>
 
@@ -40,4 +40,4 @@
 	echo "</table>";
 ?>
 
-<?php include("layouts/bottom.php"); ?>
+<?php include("../layouts/bottom.php"); ?>

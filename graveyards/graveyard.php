@@ -1,4 +1,4 @@
-<?php include("layouts/top.php"); ?>
+<?php include("../layouts/top.php"); ?>
 
 <h4 class="subheader">View Record</h4>
 
@@ -88,7 +88,7 @@
 		{
 			echo "<tr>";
 				echo "<td>";
-					echo "<a href='person.php?id=".$row['id']."'>";
+					echo "<a href='../people/person.php?id=".$row['id']."'>";
 					echo ucfirst($row['last_name']);
 					if($row['first_name'])
 					{
@@ -114,9 +114,9 @@
 		}
 		echo "</table>";
 
-		echo "<a class='tiny button' href='#'>Edit Entry</a>";
+		echo "<a class='tiny button' href='edit.php'>Edit Entry</a>";
 	}
 ?>
 
 
-<?php include("layouts/bottom.php"); ?>
+<?php include("../layouts/bottom.php"); ?>
