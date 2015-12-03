@@ -9,11 +9,19 @@
 
 <!-- TODO: pagination -->
 <?php 
-	$statement = $database->prepare(
+	/*$statement = $database->prepare(
 		'SELECT p.id, p.first_name, p.middle_name, p.last_name, p.birthdate, p.death_date, g.city, g.state
 		 FROM person AS p, graveyard AS g, plot
 		 WHERE p.plot_id = plot.id
 		 	AND g.id = plot.graveyard_id
+		 GROUP BY p.last_name
+		 ORDER BY p.last_name
+		 LIMIT 10');*/
+	$statement = $database->prepare(
+		'SELECT *, p.id AS person_id
+		 FROM person AS p
+		 	LEFT JOIN plot ON p.plot_id = plot.id
+		 	LEFT JOIN graveyard g ON plot.graveyard_id = g.id
 		 GROUP BY p.last_name
 		 ORDER BY p.last_name
 		 LIMIT 10');
@@ -24,7 +32,7 @@
 	{
 		echo "<tr>";
 			echo "<td>";
-				echo "<a href='person.php?id=".$row['id']."'>";
+				echo "<a href='person.php?id=".$row['person_id']."'>";
 				echo ucfirst($row['last_name']);
 				if($row['first_name'])
 				{
