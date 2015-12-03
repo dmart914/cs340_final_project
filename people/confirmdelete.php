@@ -43,7 +43,7 @@
 			echo "</dt>";
 			echo "<dd>";
 				echo "<a class='small button alert' href='delete.php?id=".$_GET['id']."'>Delete</a>";
-				echo "<a class='small button secondary' href='person.php?id=".$_GET['id']."'>Cancel</a>";
+				echo "<a class='small button secondary' href='../person.php?id=".$_GET['id']."'>Cancel</a>";
 			echo "</dd>";
 		echo "</dl>";
 	}
