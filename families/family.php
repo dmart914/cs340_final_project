@@ -36,7 +36,7 @@
 		{
 			echo "<tr>";
 				echo "<td>";
-					echo "<a href='person.php?id=".$row['id']."'>";
+					echo "<a href='../people/person.php?id=".$row['id']."'>";
 					echo ucfirst($row['last_name']);
 					if($row['first_name'])
 					{
@@ -52,7 +52,7 @@
 		}
 		echo "</table>";
 
-		echo "<a class='tiny button' href='#'>Edit Entry</a>";
+		echo "<a class='tiny button' href='edit.php'>Edit Entry</a>";
 	}
 ?>
 

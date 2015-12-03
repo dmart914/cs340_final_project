@@ -1,10 +1,10 @@
-<?php include("layouts/top.php"); ?>
+<?php include("../layouts/top.php"); ?>
 
 <h3>View Records by Family</h3>
 
 <!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 
-<p>&lt;Sorting options here&gt;</p>
+<!-- <p>&lt;Sorting options here&gt;</p> -->
 
 
 <!-- TODO: Pagination; number of members registered? -->
@@ -16,7 +16,7 @@
 	while ($row = $statement->fetch()) {
 		echo "<tr>";
 			echo "<td>";
-				echo "<a href='families/family.php?id=".$row['id']."'>";
+				echo "<a href='family.php?id=".$row['id']."'>";
 				echo ucfirst($row['name']);
 				echo "</a>";
 			echo "</td>";
@@ -28,4 +28,4 @@
 	echo "</table>";
 ?>
 
-<?php include("layouts/bottom.php"); ?>
+<?php include("../layouts/bottom.php"); ?>
