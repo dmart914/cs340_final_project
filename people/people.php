@@ -1,10 +1,10 @@
-<?php include("layouts/top.php"); ?>
+<?php include("../layouts/top.php"); ?>
 
 <h3>View Records by Name</h3>
 
 <!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 
-<p>&lt;Sorting options here&gt;</p>
+<!-- <p>&lt;Sorting options here&gt;</p> -->
 
 
 <!-- TODO: pagination -->
@@ -82,4 +82,4 @@
 	echo "</table>";
 ?>
 
-<?php include("layouts/bottom.php"); ?>
+<?php include("../layouts/bottom.php"); ?>

@@ -73,7 +73,7 @@
 					echo "<dt>&lt;etc&gt;</dt>";
 				echo "</dl>";
 
-				echo "<form action='people/edit.php' method='post'>";
+				echo "<form action='edit.php' method='post'>";
 					echo "<input type='hidden' name='id' value='".$_GET['id']."'>";
 					echo "<input type='submit' class='tiny button' value='Edit Entry'>";
 				echo "</form>";
@@ -94,4 +94,4 @@
 ?>
 
 
-<?php include("layouts/bottom.php"); ?>
+<?php include("../layouts/bottom.php"); ?>

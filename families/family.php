@@ -1,4 +1,4 @@
-<?php include("layouts/top.php"); ?>
+<?php include("../layouts/top.php"); ?>
 
 <h2>View Record</h2>
 
@@ -57,4 +57,4 @@
 ?>
 
 
-<?php include("layouts/bottom.php"); ?>
+<?php include("../layouts/bottom.php"); ?>

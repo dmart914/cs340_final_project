@@ -27,7 +27,7 @@
 			WHERE id = ?');
 		$statement->execute($data);
 
-		header("Location: ../person.php?id=".$_POST['id']);
+		header("Location: person.php?id=".$_POST['id']);
 		exit;
 	}
 

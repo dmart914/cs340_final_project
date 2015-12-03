@@ -1,12 +1,13 @@
-<?php include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php'); ?>
+<?php include('/home/lucia/cs340_final_project/db.cfg.php'); ?>
+<?php #include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php'); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Grave History</title>
 
-    <link rel="stylesheet" href="/cs340_final_project/resources/css/foundation.css" />
-    <script src="/cs340_final_project/resources/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="/lucia/resources/css/foundation.css" />
+    <script src="/lucia/resources/js/vendor/modernizr.js"></script>
 </head>
 <body>
 
@@ -19,7 +20,7 @@
              
             <li class="name">
               <h1>
-                <a href="/cs340_final_project/">
+                <a href="/lucia/">
                   Grave History
                 </a>
               </h1>
@@ -29,14 +30,14 @@
    
           <section class="top-bar-section">
             <ul class="left">
-              <li><a href="/cs340_final_project/browse.php">Browse</a></li>
+              <li><a href="/lucia/browse.php">Browse</a></li>
               <!--<li><a href="/cs340_final_project/search.php">Search</a></li>-->
-              <li><a href="/cs340_final_project/submit.php">Submit</a></li>
+              <li><a href="/lucia/submit.php">Submit</a></li>
             </ul>
    
             <ul class="right">
               <li class="search">
-                <form action="/cs340_final_project/searchResults.php" method="post">
+                <form action="/lucia/searchResults.php" method="post">
                   <input type="search" name="searchString">
               </li>
    

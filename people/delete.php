@@ -29,10 +29,10 @@
 
 		$statement->execute();
 
-		print_r('<pre>');
-		print_r('$statement: ');
-		var_dump($statement);
-		print_r('</pre>');
+		#print_r('<pre>');
+		#print_r('$statement: ');
+		#var_dump($statement);
+		#print_r('</pre>');
 
 		echo "<h5>Record deleted.</h5>";
 		echo "<a href='../browse.php'>Return to browsing</a>";

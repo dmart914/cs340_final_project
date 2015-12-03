@@ -16,7 +16,7 @@
 	while ($row = $statement->fetch()) {
 		echo "<tr>";
 			echo "<td>";
-				echo "<a href='family.php?id=".$row['id']."'>";
+				echo "<a href='families/family.php?id=".$row['id']."'>";
 				echo ucfirst($row['name']);
 				echo "</a>";
 			echo "</td>";

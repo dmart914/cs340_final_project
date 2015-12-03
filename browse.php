@@ -6,9 +6,9 @@
 
 <h5>View records by:</h5>
 <ul class="button-group">
-	<li><a href="/cs340_final_project/people.php" class="button">Name of Deceased</a></li>
-	<li><a href="/cs340_final_project/families.php" class="button">Family</a></li>
-	<li><a href="/cs340_final_project/graveyards.php" class="button">Cemetery or Graveyard</a></li>
+	<li><a href="people/people.php" class="button">Name of Deceased</a></li>
+	<li><a href="families/families.php" class="button">Family</a></li>
+	<li><a href="graveyards/graveyards.php" class="button">Cemetery or Graveyard</a></li>
 	<!-- <li><a href="plots.php">Geographical Area</a></li> -->
 </ul>
 
