@@ -153,6 +153,10 @@
 
 				echo "<h5>Listed family members:</h5>";
 				echo "<table>";
+				echo "<tr>";
+					echo "<th>Name</th>";
+					echo "<th>Relation to ".ucfirst($first_name)."</th>";
+				echo "</tr>";
 				while($row = $statement->fetch())
 				{
 					echo "<tr>";

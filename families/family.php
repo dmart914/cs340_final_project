@@ -26,11 +26,14 @@
 
 		echo "<dl><dt>Origin</dt><dd>".ucfirst($origin)."</dd></dl>";
 
-		$statement = $database->prepare('SELECT p.id, p.first_name, p.middle_name, p.last_name FROM person AS p WHERE p.family_id= :id');
+		$statement = $database->prepare(
+			'SELECT p.id, p.first_name, p.middle_name, p.last_name
+			 FROM person AS p
+			 WHERE p.family_id= :id');
 		$statement->bindParam(":id", $_GET["id"]);
 		$statement->execute();
 
-		echo "<h5>Registered members</h5>";
+		echo "<h5>Registered Members</h5>";
 		echo "<table>";
 		while($row = $statement->fetch())
 		{

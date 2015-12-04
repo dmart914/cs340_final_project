@@ -4,9 +4,6 @@
 
 <!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 
-<p>&lt;Sorting options here&gt;</p>
-
-
 <!-- TODO: Pagination; number of occupants registered? -->
 <!-- NOTE: Don't bother with pagination... Takes too much time - DM 12/1/15 -->
 <?php 
@@ -14,6 +11,10 @@
 	$statement->execute();
 
 	echo "<table>";
+	echo "<tr>";
+		echo "<th>Name</th>";
+		echo "<th>Location</th>";
+	echo "</tr>";
 	while ($row = $statement->fetch()) {
 		echo "<tr>";
 			echo "<td>";
