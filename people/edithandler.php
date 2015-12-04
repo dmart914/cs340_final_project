@@ -1,4 +1,4 @@
-<?php include('../../../ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php'); ?>
+<?php include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php'); ?>
 
 <?php
 
