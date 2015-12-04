@@ -9,14 +9,6 @@
 
 <!-- TODO: pagination -->
 <?php 
-	/*$statement = $database->prepare(
-		'SELECT p.id, p.first_name, p.middle_name, p.last_name, p.birthdate, p.death_date, g.city, g.state
-		 FROM person AS p, graveyard AS g, plot
-		 WHERE p.plot_id = plot.id
-		 	AND g.id = plot.graveyard_id
-		 GROUP BY p.last_name
-		 ORDER BY p.last_name
-		 LIMIT 10');*/
 	$statement = $database->prepare(
 		'SELECT *, p.id AS person_id
 		 FROM person AS p
@@ -24,10 +16,15 @@
 		 	LEFT JOIN graveyard g ON plot.graveyard_id = g.id
 		 GROUP BY p.last_name
 		 ORDER BY p.last_name
-		 LIMIT 10');
+		 LIMIT 50');
 	$statement->execute();
 
 	echo "<table>";
+	echo "<tr>";
+		echo "<th>Name</th>";
+		echo "<th>Birthdate - Death Date</th>";
+		echo "<th>Grave Location</th>";
+	echo "</tr>";
 	while ($row = $statement->fetch())
 	{
 		echo "<tr>";

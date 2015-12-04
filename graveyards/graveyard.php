@@ -67,9 +67,9 @@
 			echo $zip;
 		echo "</p>";
 
-		echo "<p>Contact: ".$contact."</p>";
+		echo "<p><b>Contact: </b>".$contact."</p>";
 
-		echo "<h5>Registered occupants</h5>";
+		echo "<h5>Registered Occupants</h5>";
 
 		$statement = $database->prepare(
 			'SELECT p.id, p.last_name, p.first_name, p.middle_name, plot.x_coord, plot.y_coord
@@ -84,6 +84,10 @@
 		$statement->execute();
 
 		echo "<table>";
+		echo "<tr>";
+			echo "<th>Name</th>";
+			echo "<th>Plot Coordinates</th>";
+		echo "</tr>";
 		while($row = $statement->fetch())
 		{
 			echo "<tr>";

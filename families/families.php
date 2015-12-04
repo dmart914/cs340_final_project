@@ -13,6 +13,10 @@
 	$statement->execute();
 
 	echo "<table>";
+	echo "<tr>";
+		echo "<th>Family Name</th>";
+		echo "<th>Place of Origin</th>";
+	echo "</tr>";
 	while ($row = $statement->fetch()) {
 		echo "<tr>";
 			echo "<td>";

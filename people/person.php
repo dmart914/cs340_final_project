@@ -132,6 +132,60 @@
 
 				echo "</dl>";
 
+				/*$statement = $database->prepare(
+					'SELECT id, first_name, middle_name, last_name
+				 	 FROM person
+					 WHERE id IN (  SELECT relative_id
+					 				FROM relationship_instance
+					 				WHERE person_id= :id)');*/
+				$statement = $database->prepare(
+					'SELECT p.id, p.first_name, p.last_name, rt.relationship_type
+					 FROM person p
+					 	INNER JOIN (SELECT *
+					 				FROM relationship_instance
+					 				WHERE person_id= :id) r
+							ON r.person_id=p.id OR r.relative_id=p.id
+						INNER JOIN relationship rt
+							ON rt.id = r.relationship_id
+					 WHERE p.id <> :id');
+				$statement->bindParam(":id", $_GET["id"]);
+				$statement->execute();
+
+				echo "<h5>Listed family members:</h5>";
+				echo "<table>";
+				echo "<tr>";
+					echo "<th>Name</th>";
+					echo "<th>Relation to ".ucfirst($first_name)."</th>";
+				echo "</tr>";
+				while($row = $statement->fetch())
+				{
+					echo "<tr>";
+						echo "<td>";
+							echo "<a href='person.php?id=".$row['id']."'>";
+							if(isset($row['last_name']))
+							{
+								echo ucfirst($row['last_name']);
+							}
+							if(isset($row['first_name']))
+							{
+								echo ", ".ucfirst($row['first_name']);
+								if(isset($row['middle_name']))
+								{
+									echo " ".ucfirst($row['middle_name']);
+								}
+							}
+							echo "</a>";
+						echo "</td>";
+						echo "<td>";
+							if(isset($row['relationship_type']))
+							{
+								echo ucfirst($row['relationship_type']);
+							}
+						echo "</td>";
+					echo "</tr>";
+				}
+				echo "</table>";
+
 				echo "<form action='edit.php' method='post'>";
 					echo "<input type='hidden' name='id' value='".$_GET['id']."'>";
 					echo "<input type='submit' class='tiny button' value='Edit Entry'>";
