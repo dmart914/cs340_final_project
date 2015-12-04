@@ -7,17 +7,19 @@
 <?php
 	if($_GET["id"])
 	{
-		$first_name = "unknown";
-		$middle_name = "unknown";
-		$last_name = "unknown";
-		$birthdate = "unknown";
-		$death_date = "unknown";
-		$death_location = "unknown";
-		$cause_of_death = "unknown";
+		$first_name = "Unknown";
+		$middle_name = "Unknown";
+		$last_name = "Unknown";
+		$birthdate = "Unknown";
+		$death_date = "Unknown";
+		$death_location = "Unknown";
+		$cause_of_death = "Unknown";
 		$image_path = "none";
 		$plot_id = "";
 		$graveyard_id = "";
-		$graveyard_name = "unknown";
+		$graveyard_name = "Unknown";
+		$plot_x = "";
+		$plot_y = "";
 
 		$statement = $database->prepare(
 			'SELECT *, p.id AS person_id, plot.id AS plot_id, g.id AS g_id,
@@ -65,6 +67,14 @@
 			{
 				$graveyard_name = ucfirst($row['g_name']);
 			}
+			if(isset($row['x_coord']))
+			{
+				$plot_x = ucfirst($row['x_coord']);
+			}
+			if(isset($row['y_coord']))
+			{
+				$plot_y = ucfirst($row['y_coord']);
+			}
 		}
 
 		echo "<div class='row'>";
@@ -83,15 +93,19 @@
 		echo "<div class='row'>";
 			echo "<div class='small-8 columns'>";
 				echo "<dl>";
+
 					echo "<dt>Born:</dt><dd>".$birthdate."</dd>";
+
 					echo "<dt>Died:</dt><dd>".$death_date;
 					if($death_location != "unknown")
 					{
 						echo " in ".$death_location;
 					}
 					echo "</dd>";
+
 					echo "<dt>Cause of death:</dt><dd>".$cause_of_death."</dd>";
-					echo "<dt>Interred at: </dt>";
+
+					echo "<dt>Interred at:</dt>";
 					echo "<dd>";
 						if(strlen($graveyard_id) > 0)
 						{
@@ -103,6 +117,19 @@
 							echo "</a>";
 						}
 					echo "</dd>";
+
+					echo "<dt>Plot location:</dt>";
+					echo "<dd>";
+						if(strlen($plot_x) > 0 && strlen($plot_y) > 0)
+						{
+							echo "(".$plot_x.", ".$plot_y.")";
+						}
+						else
+						{
+							echo "Unknown";
+						}
+					echo "</dd>";
+
 				echo "</dl>";
 
 				echo "<form action='edit.php' method='post'>";
