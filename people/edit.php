@@ -61,6 +61,24 @@
 			}
 		}
 
+		// Get the user's relatives
+		$q = 'SELECT p.id, p.first_name, p.last_name, rt.relationship_type from person p INNER JOIN ';
+		$q .= '(SELECT * FROM relationship_instance WHERE person_id='. $_POST["id"] . ') r ON r.person_id=p.id OR r.relative_id=p.id INNER JOIN ';
+		$q .= 'relationship rt ON rt.id = r.relationship_id WHERE p.id <> '. $_POST["id"];
+		$relatives = $database->prepare($q);
+		$relatives->execute();
+		$person = $relatives->fetch();
+
+		print_r('<pre>');
+		print_r('$person: ');
+		var_dump($person);
+		print_r('</pre>'); 
+
+		print_r('<pre>');
+		print_r('$q: ');
+		var_dump($q);
+		print_r('</pre>'); 
+
 		echo "<h4 class='subheader'>People</h4>";
 		echo "<form action='edithandler.php' method='POST'>";
 			echo "<input type='hidden' name='id' value='".$_POST['id']."'>";
