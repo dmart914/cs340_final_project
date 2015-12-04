@@ -52,7 +52,7 @@
 		}
 		echo "</table>";
 
-		echo "<a class='tiny button' href='edit.php'>Edit Entry</a>";
+		echo "<a class='tiny button' href='edit.php?id=" . $_GET['id'] . "'>Edit Entry</a>";
 	}
 ?>
 
