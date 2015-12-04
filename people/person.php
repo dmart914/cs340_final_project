@@ -15,34 +15,55 @@
 		$death_location = "unknown";
 		$cause_of_death = "unknown";
 		$image_path = "none";
+		$plot_id = "";
+		$graveyard_id = "";
+		$graveyard_name = "unknown";
 
-		$statement = $database->prepare('SELECT * FROM person WHERE id= :id');
+		$statement = $database->prepare(
+			'SELECT *, p.id AS person_id, plot.id AS plot_id, g.id AS g_id,
+				g.name AS g_name
+		 	 FROM person AS p
+		 	 	LEFT JOIN plot ON p.plot_id = plot.id
+		 	 	LEFT JOIN graveyard g ON plot.graveyard_id = g.id
+			 WHERE p.id= :id');
 		$statement->bindParam(":id", $_GET["id"]);
 		$statement->execute();
 
 		while($row = $statement->fetch())
 		{
 			$first_name = ucfirst($row['first_name']);
-			if($row['middle_name'])
+			if(isset($row['middle_name']))
 			{
 				$middle_name = ucfirst($row['middle_name']);
 			}
 			$last_name = ucfirst($row['last_name']);
-			if($row['birthdate'])
+			if(isset($row['birthdate']))
 			{
 				$birthdate = ucfirst($row['birthdate']);
 			}
-			if($row['death_date'])
+			if(isset($row['death_date']))
 			{
 				$death_date = ucfirst($row['death_date']);
 			}
-			if($row['death_location'])
+			if(isset($row['death_location']))
 			{
 				$death_location = ucfirst($row['death_location']);
 			}
-			if($row['cause_of_death'])
+			if(isset($row['cause_of_death']))
 			{
 				$cause_of_death = ucfirst($row['cause_of_death']);
+			}
+			if(isset($row['plot_id']))
+			{
+				$plot_id = $row['plot_id'];
+			}
+			if(isset($row['g_id']))
+			{
+				$graveyard_id = $row['g_id'];
+			}
+			if(isset($row['g_name']))
+			{
+				$graveyard_name = ucfirst($row['g_name']);
 			}
 		}
 
@@ -70,7 +91,18 @@
 					}
 					echo "</dd>";
 					echo "<dt>Cause of death:</dt><dd>".$cause_of_death."</dd>";
-					echo "<dt>&lt;etc&gt;</dt>";
+					echo "<dt>Interred at: </dt>";
+					echo "<dd>";
+						if(strlen($graveyard_id) > 0)
+						{
+							echo "<a href='../graveyards/graveyard.php?id=".$graveyard_id."'>";
+						}
+						echo $graveyard_name;
+						if(strlen($graveyard_id) > 0)
+						{
+							echo "</a>";
+						}
+					echo "</dd>";
 				echo "</dl>";
 
 				echo "<form action='edit.php' method='post'>";
