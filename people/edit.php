@@ -76,10 +76,10 @@
 
 
 
-		print_r('<pre>');
-		print_r('$q: ');
-		var_dump($q);
-		print_r('</pre>'); 
+		#print_r('<pre>');
+		#print_r('$q: ');
+		#var_dump($q);
+		#print_r('</pre>'); 
 
 		echo "<h4 class='subheader'>People</h4>";
 		echo "<form action='edithandler.php' method='POST'>";

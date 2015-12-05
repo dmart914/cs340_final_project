@@ -7,10 +7,10 @@ include("../layouts/top.php");
 
 // include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php');
 
-print_r('<pre>');
-print_r('$_GET: ');
-var_dump($_GET);
-print_r('</pre>'); 
+#print_r('<pre>');
+#print_r('$_GET: ');
+#var_dump($_GET);
+#print_r('</pre>'); 
 
 if (!isset($_GET['id1'])) {
 	echo "<dl><dt>An error occurred.</dt><dd>Please go back and try again</a>.</dd></dl>";
