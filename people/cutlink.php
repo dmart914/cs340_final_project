@@ -3,8 +3,9 @@
 /* params:
 	id1=y&id2=z
 */
+include("../layouts/top.php");
 
-include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php');
+// include('/home/ubuntu/00_PUBLIC_HTML/cs340_final_project/db.cfg.php');
 
 print_r('<pre>');
 print_r('$_GET: ');
@@ -25,11 +26,10 @@ if (!isset($_GET['id1'])) {
 
 	$stmt->execute();
 
-
-
- 
-
-	
+	echo "<h5>Relationship deleted.</h5>";
+	echo "<a href='../browse.php'>Return to browsing</a>";
 }
 
 ?>
+
+<?php include("../layouts/bottom.php"); ?>

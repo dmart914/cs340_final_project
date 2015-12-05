@@ -67,12 +67,14 @@
 		$q .= 'relationship rt ON rt.id = r.relationship_id WHERE p.id <> '. $_POST["id"];
 		$relatives = $database->prepare($q);
 		$relatives->execute();
-		$person = $relatives->fetch();
 
-		print_r('<pre>');
-		print_r('$person: ');
-		var_dump($person);
-		print_r('</pre>'); 
+		$people = $database->prepare('SELECT id, first_name, last_name from person');
+		$people->execute();
+
+		$relationships = $database->prepare('SELECT * from relationship');
+		$relationships->execute();
+
+
 
 		print_r('<pre>');
 		print_r('$q: ');
@@ -135,6 +137,76 @@
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-8 columns'>";
+				echo "</div>";
+			echo "</div>";
+			echo "<div class='row'>";
+				echo "<div class='small-8 columns'>";
+					echo "<label>Relatives</label>";
+					echo "<table>";
+						echo "<tr>";
+							echo "<th>";
+								echo "Name";
+							echo "</th>";
+							echo "<th>";
+								echo "Relation to " . $first_name;
+							echo "</th>";
+							echo "<th>";
+								echo "Action";
+							echo "</th>";
+						echo "</tr>";
+						while ($row = $relatives->fetch()) {
+							echo "<tr>";
+								echo "<td>";
+									echo "<a href='person.php?id=" . $row['id'] . "'>";
+									echo $row['first_name'] . ' ' . $row['last_name'];
+									echo "</a>";
+								echo "</td>";
+								echo "<td>";
+									echo $row['relationship_type'];
+								echo "</td>";
+								echo "<td>";
+									echo "<a href='cutlink.php?id1=" . $_POST['id'] . "&id2=" . $row['id'] . "' class='button small alert' tagret='_new'>Delete relationship</a>";
+								echo "</td>";
+							echo "</tr>";	
+						}
+					echo "</table>";
+				echo "</div>";
+			echo "</div>";
+
+			echo "<div class='row'>";
+				echo "<div class='small-8 columns'>";
+					echo "<table>";
+						echo "<tr>";
+							echo "<th>";
+								echo "Name";
+							echo "</th>";
+							echo "<th>";
+								echo "Relation to " . $first_name;
+							echo "</th>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td>";
+								echo "<select name='relative'>";
+									echo "<option value='none'>(none)</option>";
+									while ($row = $people->fetch()) {
+										echo "<option value='" . $row['id'] . "'>" . $row['first_name'] . ' ' . $row ['last_name'] . "</option>";
+									}
+								echo "</select>";
+							echo "</td>";
+							echo "<td>";
+								echo "<select name='relationship_type'>";
+									echo "<option value='none'>(none)</option>";
+									while ($row = $relationships->fetch()) {
+										echo "<option value='" . $row['id'] . "'>" . $row['relationship_type'] . "</option>";
+									}
+								echo "</select>";
+							echo "</td>";
+
+						echo "</tr>";
+
+
+
+					echo "</table>";
 				echo "</div>";
 			echo "</div>";
 
