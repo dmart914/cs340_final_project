@@ -9,6 +9,12 @@
 
 	else
 	{
+
+		// print_r('<pre>');
+		// print_r('$_POST: ');
+		// var_dump($_POST);
+		// print_r('</pre>');
+
 		$data = array(
 			$_POST['first_name'], $_POST['middle_name'],
 			$_POST['last_name'], $_POST['birthdate'],
@@ -25,7 +31,16 @@
 				cause_of_death = ?,
 				death_location = ?
 			WHERE id = ?');
-		$statement->execute($data);
+		// $statement->execute($data);
+
+		// Add relationship if set
+		if ($_POST['relative'] != 'none' && $_POST['relationship_type'] != 'none') {
+			$q = 'INSERT INTO relationship_instance (person_id, relative_id, relationship_id) VALUES (';
+			$q .= $_POST['id'] . ',' . $_POST['relative'] . ',' . $_POST['relationship_type'] . ')';
+			
+			$rel_stmt = $database->prepare($q);
+			$rel_stmt->execute();
+		}
 
 		header("Location: person.php?id=".$_POST['id']);
 		exit;
