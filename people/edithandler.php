@@ -31,7 +31,7 @@
 				cause_of_death = ?,
 				death_location = ?
 			WHERE id = ?');
-		// $statement->execute($data);
+		$statement->execute($data);
 
 		// Add relationship if set
 		if ($_POST['relative'] != 'none' && $_POST['relationship_type'] != 'none') {
@@ -40,6 +40,71 @@
 			
 			$rel_stmt = $database->prepare($q);
 			$rel_stmt->execute();
+		}
+
+		// Add graveyard if set
+		if(isset($_POST['graveyard']))
+		{
+			/*$data = array($_POST['id'], $_POST['graveyard'],
+						  $_POST['id'], $_POST['id'],
+						  $_POST['graveyard']);
+			$statement = $database->prepare('
+				IF EXISTS ( SELECT id
+							FROM plot
+							WHERE id IN (SELECT plot_id
+										 FROM person
+										 WHERE id = :id))
+					UPDATE plot
+					SET graveyard_id = :gid
+					WHERE id IN (SELECT plot_id
+								 FROM person
+								 WHERE id = :id))
+				ELSE
+					INSERT INTO plot (graveyard_id)
+					VALUES (?)');
+			$statement->execute($data);*/
+
+			# Check whether this person already has a plot
+			$statement = $database->prepare('
+				SELECT id
+				FROM plot
+				WHERE id IN (SELECT plot_id
+							 FROM person
+							 WHERE id = :id)');
+			$statement->bindParam(":id", $_POST['id']);
+			$statement->execute();
+
+			# Person has a plot. Update plot's graveyard.
+			if($statement->rowCount() > 0)
+			{
+				$data = array($_POST['graveyard'], $_POST['id']);
+				$statement = $database->prepare('
+					UPDATE plot
+					SET graveyard_id = ?
+					WHERE plot.id IN (SELECT plot_id
+								 FROM person
+								 WHERE person.id = ?)');
+				$statement->execute($data);
+			}
+
+			# Person has no plot. Create plot and attach it.
+			else
+			{
+				$data = array($_POST['graveyard']);
+				$statement = $database->prepare('
+					INSERT INTO plot (graveyard_id)
+					VALUES (?)');
+				$statement->execute($data);
+
+				$last_plot_id = $database->lastInsertId();
+				$data = array($last_plot_id, $_POST['id']);
+
+				$statement = $database->prepare('
+					UPDATE person
+					SET plot_id = ?
+					WHERE id = ?');
+				$statement->execute($data);
+			}
 		}
 
 		header("Location: person.php?id=".$_POST['id']);

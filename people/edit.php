@@ -74,6 +74,9 @@
 		$relationships = $database->prepare('SELECT * from relationship');
 		$relationships->execute();
 
+		$graveyards = $database->prepare('SELECT id, name FROM graveyard');
+		$graveyards->execute();
+
 
 
 		#print_r('<pre>');
@@ -206,6 +209,28 @@
 
 
 
+					echo "</table>";
+				echo "</div>";
+			echo "</div>";
+
+			echo "<div class='row'>";
+				echo "<div class='small-8 columns'>";
+					echo "<table>";
+						echo "<tr>";
+							echo "<th>";
+								echo "Graveyard";
+							echo "</th>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td>";
+								echo "<select name='graveyard'>";
+									echo "<option value='none'>(none)</option>";
+									while ($row = $graveyards->fetch()) {
+										echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+									}
+								echo "</select>";
+							echo "</td>";
+						echo "</tr>";
 					echo "</table>";
 				echo "</div>";
 			echo "</div>";
