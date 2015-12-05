@@ -196,7 +196,7 @@
 				echo "</form>";
 			echo "</div>";
 			echo "<div class='small-4 columns'>";
-				if($image_path == "none")
+				if($image_path == "none" || $image_path == "")
 				{
 					echo "<h6 class='subheader'><i>No image available.</i></h6>";
 				}

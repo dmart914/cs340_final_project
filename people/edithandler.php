@@ -35,6 +35,54 @@
 			WHERE id = ?');
 		$statement->execute($data);
 
+		// Update plot coordinates if set
+		// Check whether plot exists
+		# Check whether this person already has a plot
+		if(isset($_POST['x_coord']) && isset($_POST['y_coord']))
+		{
+			$statement = $database->prepare('
+				SELECT id
+				FROM plot
+				WHERE id IN (SELECT plot_id
+							 FROM person
+							 WHERE id = :id)');
+			$statement->bindParam(":id", $_POST['id']);
+			$statement->execute();
+
+			# Person has a plot. Update plot's coordinates.
+			if($statement->rowCount() > 0)
+			{
+				$data = array($_POST['x_coord'], $_POST['y_coord'], $_POST['id']);
+				$statement = $database->prepare('
+					UPDATE plot
+					SET x_coord = ?,
+						y_coord = ?
+					WHERE plot.id IN (SELECT plot_id
+								 FROM person
+								 WHERE person.id = ?)');
+				$statement->execute($data);
+			}
+
+			# Person has no plot. Create plot and attach it.
+			else
+			{
+				$data = array($_POST['x_coord'], $_POST['y_coord']);
+				$statement = $database->prepare('
+					INSERT INTO plot (x_coord, y_coord)
+					VALUES (?, ?)');
+				$statement->execute($data);
+
+				$last_plot_id = $database->lastInsertId();
+				$data = array($last_plot_id, $_POST['id']);
+
+				$statement = $database->prepare('
+					UPDATE person
+					SET plot_id = ?
+					WHERE id = ?');
+				$statement->execute($data);
+			}
+		}
+
 		// Add relationship if set
 		if ($_POST['relative'] != 'none' && $_POST['relationship_type'] != 'none') {
 			$q = 'INSERT INTO relationship_instance (person_id, relative_id, relationship_id) VALUES (';
@@ -47,25 +95,6 @@
 		// Add graveyard if set
 		if(isset($_POST['graveyard']))
 		{
-			/*$data = array($_POST['id'], $_POST['graveyard'],
-						  $_POST['id'], $_POST['id'],
-						  $_POST['graveyard']);
-			$statement = $database->prepare('
-				IF EXISTS ( SELECT id
-							FROM plot
-							WHERE id IN (SELECT plot_id
-										 FROM person
-										 WHERE id = :id))
-					UPDATE plot
-					SET graveyard_id = :gid
-					WHERE id IN (SELECT plot_id
-								 FROM person
-								 WHERE id = :id))
-				ELSE
-					INSERT INTO plot (graveyard_id)
-					VALUES (?)');
-			$statement->execute($data);*/
-
 			# Check whether this person already has a plot
 			$statement = $database->prepare('
 				SELECT id

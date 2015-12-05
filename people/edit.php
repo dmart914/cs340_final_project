@@ -20,6 +20,8 @@
 		$cause_of_death = "";
 		$family_id = "";
 		$plot_id = "";
+		$plot_x = "";
+		$plot_y = "";
 		$graveyard_id = "";
 		$image_path = "";
 
@@ -153,6 +155,26 @@
 					echo "<label>Image";
 					echo "<input type='text' value='".$image_path."' name='image_path'>";
 					echo "</label>";
+				echo "</div>";
+			echo "</div>";
+
+			echo "<div class='row'>";
+				echo "<div class='small-6 columns'>";
+					echo "<label>Plot Coordinates</label>";
+					echo "<table>";
+						echo "<div class='small-3 columns'>";
+							echo "<label>X-Coord";
+							echo "<input type='text' value='".$plot_x."' name='x_coord'>";
+							echo "</label>";
+						echo "</div>";
+						echo "<div class='small-3 columns'>";
+							echo "<label>Y-Coord";
+							echo "<input type='text' value='".$plot_y."' name='y_coord'>";
+							echo "</label>";
+						echo "</div>";
+						echo "<div class='small-6 columns'>";
+						echo "</div>";
+					echo "</table>";
 				echo "</div>";
 			echo "</div>";
 
