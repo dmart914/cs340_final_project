@@ -55,6 +55,10 @@
 			{
 				$cause_of_death = ucfirst($row['cause_of_death']);
 			}
+			if(isset($row['image']))
+			{
+				$image_path = $row['image'];
+			}
 			if(isset($row['plot_id']))
 			{
 				$plot_id = $row['plot_id'];

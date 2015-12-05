@@ -19,7 +19,8 @@
 			$_POST['first_name'], $_POST['middle_name'],
 			$_POST['last_name'], $_POST['birthdate'],
 			$_POST['death_date'], $_POST['cause_of_death'],
-			$_POST['death_location'], $_POST['id']);
+			$_POST['death_location'], $_POST['image_path'],
+			$_POST['id']);
 
 		$statement = $database->prepare('
 			UPDATE person
@@ -29,7 +30,8 @@
 				birthdate = ?,
 				death_date = ?,
 				cause_of_death = ?,
-				death_location = ?
+				death_location = ?,
+				image = ?
 			WHERE id = ?');
 		$statement->execute($data);
 
