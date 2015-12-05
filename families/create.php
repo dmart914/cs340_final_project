@@ -60,7 +60,7 @@
 			</label>
 		</div>
 		<div class="large-12 columns">
-			<input type="submit" value="Add person" class="button expand" />
+			<input type="submit" value="Add Family" class="button expand" />
 		</div>
 	</form>
 </div>

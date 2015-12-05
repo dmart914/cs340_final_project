@@ -43,7 +43,7 @@
 		{
 			$foundResults = True;
 			echo "<dt>";
-				echo "<a href='person.php?id=".$row['id']."'>";
+				echo "<a href='people/person.php?id=".$row['id']."'>";
 				echo ucfirst($row['last_name']);
 				if($row['first_name'])
 				{
@@ -83,7 +83,7 @@
 		{
 			$foundResults = True;
 			echo "<dt>";
-				echo "<a href='family.php?id=".$row['id']."'>";
+				echo "<a href='families/family.php?id=".$row['id']."'>";
 				echo "The ".ucfirst($row['name'])." Family";
 				echo "</a>";
 			echo "</dt>";
@@ -111,7 +111,7 @@
 		{
 			$foundResults = True;
 			echo "<dt>";
-				echo "<a href='graveyard.php?id=".$row['id']."'>";
+				echo "<a href='graveyards/graveyard.php?id=".$row['id']."'>";
 				echo ucfirst($row['name']);
 				echo "</a>";
 			echo "</dt>";

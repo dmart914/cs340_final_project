@@ -88,8 +88,15 @@ try {
                 <input type="text" name="origin" value="<?php echo $entry["origin"]; ?>" />
             </label>
         </div>
-        <div class="large-12 columns">
-            <input type="submit" value="Submit Changes" class="button expand" />
+        <div class="row">
+            <div class="small-3 columns">
+                <input type="submit" value="Submit Changes" class="button" />
+            </div>
+            <div class="small-3 columns">
+                <a href="delete.php?id=<?php echo $obj_id ?>" class="button alert">Delete Family</a>
+            </div>
+            <div class="small-6 columns">
+            </div>
         </div>
     </form>
 </div>
