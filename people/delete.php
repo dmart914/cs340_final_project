@@ -17,22 +17,9 @@
 		$rel_ins_stmt = $database->prepare($rel_ins_q);
 		$rel_ins_stmt->execute();
 
-		#print_r('<pre>');
-		#print_r('$rel_ins_stmt: ');
-		#var_dump($rel_ins_stmt);
-		#print_r('</pre>');
-
-
-
 		$statement = $database->prepare('DELETE FROM person WHERE id=' . $_GET['id']);
-		// $statement->bindParam(":id", $_GET['id']);
 
 		$statement->execute();
-
-		#print_r('<pre>');
-		#print_r('$statement: ');
-		#var_dump($statement);
-		#print_r('</pre>');
 
 		echo "<h5>Record deleted.</h5>";
 		echo "<a href='../browse.php'>Return to browsing</a>";

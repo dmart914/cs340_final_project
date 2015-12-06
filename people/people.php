@@ -2,11 +2,6 @@
 
 <h3>View Records by Name</h3>
 
-<!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
-
-<!-- <p>&lt;Sorting options here&gt;</p> -->
-
-
 <!-- TODO: pagination -->
 <?php 
 	$statement = $database->prepare(

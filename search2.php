@@ -9,7 +9,6 @@
 
 <h3>Search Records</h3>
 
-<!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 <?php
 	if($_GET["find"] == "person")
 	{

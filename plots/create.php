@@ -15,8 +15,6 @@
 			$q .= $_POST["graveyard"] . ')';
 		}
 
-		// var_dump($q);
-
 		$new_entry = $database->prepare($q);
 		$last_id = 0;
 
@@ -26,8 +24,6 @@
 			// Get ID of inserted element
 			$stmt = $database->query('SELECT LAST_INSERT_ID()');
 			$last_id = $stmt->fetch(PDO::FETCH_NUM);
-
-			// print_r('last id: ' . $last_id[0]);
 
 			echo '<div data-alert class="alert-box success">Plot added!</div>';
 		} catch (PDOException $e) {
@@ -46,9 +42,6 @@
 				$modified_person = $database->query($q_2);
 				$modified_person->execute();
 
-				// print_r('updated rows: ' . $modified_person->rowCount() . '<br>');
-				// print_r('last row modified: ' . $database->lastInsertId() . '<br>');
-				// var_dump($modified_person->errorInfo());
 			} catch (PDOException $e) {
 				echo '<div data-alert class="alert-box alert">Something went wrong!<br>';
 				echo $e->getMessage();

@@ -12,14 +12,8 @@
 	{
 
 		$statement = $database->prepare('DELETE FROM plot WHERE id=' . $_GET['id']);
-		// $statement->bindParam(":id", $_GET['id']);
 
 		$statement->execute();
-
-		#print_r('<pre>');
-		#print_r('$statement: ');
-		#var_dump($statement);
-		#print_r('</pre>');
 
 		echo "<h5>Record deleted.</h5>";
 		echo "<a href='../browse.php'>Return to browsing</a>";

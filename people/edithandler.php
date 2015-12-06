@@ -9,12 +9,6 @@
 
 	else
 	{
-
-		// print_r('<pre>');
-		// print_r('$_POST: ');
-		// var_dump($_POST);
-		// print_r('</pre>');
-
 		$data = array(
 			$_POST['first_name'], $_POST['middle_name'],
 			$_POST['last_name'], $_POST['birthdate'],
@@ -37,7 +31,6 @@
 
 		// Update plot coordinates if set
 		// Check whether plot exists
-		# Check whether this person already has a plot
 		if(isset($_POST['x_coord']) && isset($_POST['y_coord']))
 		{
 			$statement = $database->prepare('

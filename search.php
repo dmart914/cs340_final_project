@@ -2,14 +2,11 @@
 
 <h3>Search Records</h3>
 
-<!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
-
 <h5>Find a:</h5>
 <ul class="button-group">
 	<li><a href="search2.php?find=person" class="button">Person</a></li>
 	<li><a href="search2.php?find=family" class="button">Family</a></li>
 	<li><a href="search2.php?find=graveyard" class="button">Cemetery or Graveyard</a></li>
-	<!-- <li><a href="plots.php">Geographical Area</a></li> -->
 </ul>
 
 <?php include("layouts/bottom.php"); ?>

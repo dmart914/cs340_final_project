@@ -2,7 +2,6 @@
 
 <h3>Edit Record</h3>
 
-<!-- <h4 class="subheader">&lt;BLURB HERE&gt;</h4> -->
 <?php
 	if(!isset($_POST['id']))
 	{
@@ -84,13 +83,7 @@
 		$graveyards = $database->prepare('SELECT id, name FROM graveyard');
 		$graveyards->execute();
 
-
-
-		#print_r('<pre>');
-		#print_r('$q: ');
-		#var_dump($q);
-		#print_r('</pre>'); 
-
+		// Output HTML
 		echo "<h4 class='subheader'>People</h4>";
 		echo "<form action='edithandler.php' method='POST'>";
 			echo "<input type='hidden' name='id' value='".$_POST['id']."'>";

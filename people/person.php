@@ -136,12 +136,6 @@
 
 				echo "</dl>";
 
-				/*$statement = $database->prepare(
-					'SELECT id, first_name, middle_name, last_name
-				 	 FROM person
-					 WHERE id IN (  SELECT relative_id
-					 				FROM relationship_instance
-					 				WHERE person_id= :id)');*/
 				$statement = $database->prepare(
 					'SELECT p.id, p.first_name, p.last_name, rt.relationship_type
 					 FROM person p
