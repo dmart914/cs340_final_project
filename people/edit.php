@@ -22,7 +22,6 @@
 		$plot_x = "";
 		$plot_y = "";
 		$graveyard_id = "";
-		$image_path = "";
 
 		$statement = $database->prepare('
 			SELECT *
@@ -152,14 +151,6 @@
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-8 columns'>";
-				echo "</div>";
-			echo "</div>";
-
-			echo "<div class='row'>";
-				echo "<div class='small-6 columns'>";
-					echo "<label>Image";
-					echo "<input type='text' value='".$image_path."' name='image_path'>";
-					echo "</label>";
 				echo "</div>";
 			echo "</div>";
 
