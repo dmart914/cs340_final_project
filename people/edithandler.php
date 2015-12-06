@@ -76,6 +76,20 @@
 			}
 		}
 
+		// Add user's family
+		if ($_POST['family']) {
+			$q = 'UPDATE person SET family_id=';
+			if ($_POST['family'] == 'none') {
+				$q .= 'NULL';
+			} else {
+				$q .= $_POST['family'];
+			}
+			$q .= ' WHERE id=' . $_POST['id'];
+
+			$family_update = $database->prepare($q);
+			$family_update->execute();
+		}
+
 		// Add relationship if set
 		if ($_POST['relative'] != 'none' && $_POST['relationship_type'] != 'none') {
 			$q = 'INSERT INTO relationship_instance (person_id, relative_id, relationship_id) VALUES (';

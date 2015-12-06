@@ -65,6 +65,10 @@
 			{
 				$image_path = $row['image'];
 			}
+			if($row['family_id']) 
+			{
+				$family_id = $row['family_id'];
+			}
 		}
 
 		// Get the user's relatives
@@ -74,14 +78,22 @@
 		$relatives = $database->prepare($q);
 		$relatives->execute();
 
-		$people = $database->prepare('SELECT id, first_name, last_name from person');
+		$people = $database->prepare('SELECT id, first_name, last_name FROM person');
 		$people->execute();
 
-		$relationships = $database->prepare('SELECT * from relationship');
+		$relationships = $database->prepare('SELECT * FROM relationship');
 		$relationships->execute();
 
 		$graveyards = $database->prepare('SELECT id, name FROM graveyard');
 		$graveyards->execute();
+
+		// Get all the families
+		$family_stmt = $database->prepare('SELECT * FROM family');
+		$family_stmt->execute();
+
+		// Get the user's family
+		$user_family_stmt = $database->prepare('SELECT * FROM family WHERE id=' . $family_id);
+		$user_family_stmt->execute();
 
 		// Output HTML
 		echo "<h4 class='subheader'>People</h4>";
@@ -238,6 +250,36 @@
 
 
 
+					echo "</table>";
+				echo "</div>";
+			echo "</div>";
+
+			echo "<div class='row'>";
+				echo "<p>Family</p>";
+				echo "<div class='small-12 columns'>";
+					echo "<table width='300'>";
+						echo "<tr>";
+							echo "<th>";
+								echo "Name";
+							echo "</th>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td>";
+								echo "<select name='family'>";
+									while ($row = $user_family_stmt->fetch()) {
+										echo "<option value='" . $row['id'] . "'>";
+										echo $row['name'];
+										echo "</option>";
+									}
+									echo "<option value='none'>(none)</option>";
+									while ($row = $family_stmt->fetch()) {
+										echo "<option value='" . $row['id'] . "'>";
+										echo $row['name'];
+										echo "</option>";
+									}
+								echo "</select>";
+							echo "</td>";
+						echo "</tr>";
 					echo "</table>";
 				echo "</div>";
 			echo "</div>";

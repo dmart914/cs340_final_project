@@ -9,7 +9,6 @@
 		 FROM person AS p
 		 	LEFT JOIN plot ON p.plot_id = plot.id
 		 	LEFT JOIN graveyard g ON plot.graveyard_id = g.id
-		 GROUP BY p.last_name
 		 ORDER BY p.last_name
 		 LIMIT 50');
 	$statement->execute();
