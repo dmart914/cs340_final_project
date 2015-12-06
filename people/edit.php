@@ -23,7 +23,6 @@
 		$plot_x = "";
 		$plot_y = "";
 		$graveyard_id = "";
-		$image_path = "";
 
 		$statement = $database->prepare('
 			SELECT *
@@ -61,10 +60,6 @@
 			if($row['cause_of_death'])
 			{
 				$cause_of_death = ucfirst($row['cause_of_death']);
-			}
-			if($row['image'])
-			{
-				$image_path = $row['image'];
 			}
 		}
 
@@ -147,14 +142,6 @@
 					echo "</label>";
 				echo "</div>";
 				echo "<div class='small-8 columns'>";
-				echo "</div>";
-			echo "</div>";
-
-			echo "<div class='row'>";
-				echo "<div class='small-6 columns'>";
-					echo "<label>Image";
-					echo "<input type='text' value='".$image_path."' name='image_path'>";
-					echo "</label>";
 				echo "</div>";
 			echo "</div>";
 

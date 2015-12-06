@@ -14,7 +14,6 @@
 		$death_date = "Unknown";
 		$death_location = "Unknown";
 		$cause_of_death = "Unknown";
-		$image_path = "none";
 		$plot_id = "";
 		$graveyard_id = "";
 		$graveyard_name = "Unknown";
@@ -54,10 +53,6 @@
 			if(isset($row['cause_of_death']))
 			{
 				$cause_of_death = ucfirst($row['cause_of_death']);
-			}
-			if(isset($row['image']))
-			{
-				$image_path = $row['image'];
 			}
 			if(isset($row['plot_id']))
 			{
@@ -136,12 +131,6 @@
 
 				echo "</dl>";
 
-				/*$statement = $database->prepare(
-					'SELECT id, first_name, middle_name, last_name
-				 	 FROM person
-					 WHERE id IN (  SELECT relative_id
-					 				FROM relationship_instance
-					 				WHERE person_id= :id)');*/
 				$statement = $database->prepare(
 					'SELECT p.id, p.first_name, p.last_name, rt.relationship_type
 					 FROM person p
@@ -196,15 +185,6 @@
 				echo "</form>";
 			echo "</div>";
 			echo "<div class='small-4 columns'>";
-				if($image_path == "none" || $image_path == "")
-				{
-					echo "<h6 class='subheader'><i>No image available.</i></h6>";
-				}
-				else
-				{
-					echo "<img src='".$image_path."' 
-						   	   alt='".$first_name." ".$middle_name." ".$last_name."'>";
-				}
 			echo "</div>";
 		echo "</div>";
 	}
