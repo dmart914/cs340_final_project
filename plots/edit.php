@@ -3,10 +3,10 @@
 <?php 
 
 // Get the ID of the requested object
-print_r('<pre>');
-print_r('$_GET: ');
-var_dump($_GET);
-print_r('</pre>');
+#print_r('<pre>');
+#print_r('$_GET: ');
+#var_dump($_GET);
+#print_r('</pre>');
 
 $obj_id = 0;
 if ($_GET['id']) {
@@ -18,10 +18,10 @@ if ($_GET['id']) {
 
 // Check for POST, edit object
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r('<pre>');
-    print_r('$_POST: ');
-    var_dump($_POST);
-    print_r('</pre>');
+    #print_r('<pre>');
+    #print_r('$_POST: ');
+    #var_dump($_POST);
+    #print_r('</pre>');
 
     // Build the query, make the SQL call
     $q_edit = 'UPDATE plot SET ';
@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q_edit .= 'y_coord=' . $_POST["y_coord"] . ', '; 
     $q_edit .= 'graveyard_id=' . $_POST["graveyard"] . ' ';
     $q_edit .= 'WHERE id=' . $obj_id . ' LIMIT 1';
-    print_r('<pre>');
-    print_r('$q_edit: ');
-    var_dump($q_edit);
-    print_r('</pre>');
+    #print_r('<pre>');
+    #print_r('$q_edit: ');
+    #var_dump($q_edit);
+    #rint_r('</pre>');
 
     $edit_object = $database->prepare($q_edit);
 
@@ -49,18 +49,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Get person to whom plot belongs
     $person_q = 'SELECT id FROM person WHERE plot_id=' . $obj_id;
-	print_r('<pre>');
-	print_r('$person_q: ');
-	var_dump($person_q);
-	print_r('</pre>');
+	#print_r('<pre>');
+	#print_r('$person_q: ');
+	#var_dump($person_q);
+	#print_r('</pre>');
 
     $person_stmt = $database->prepare($person_q);
     $person_stmt->execute();
     $person_id = $person_stmt->fetch();
-    print_r('<pre>');
-	print_r('$person_id: ');
-	var_dump($person_id);
-	print_r('</pre>');
+    #print_r('<pre>');
+	#print_r('$person_id: ');
+	#var_dump($person_id);
+	#print_r('</pre>');
 
     // Check for diff, update
     if ($person_id[0] != $_POST['occupant']) {
@@ -69,14 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     	$new_person_update = 'UPDATE person SET plot_id=';
     	$new_person_update .= $obj_id . ' WHERE id=' . $_POST['occupant'];
 
-    	print_r('<pre>');
-		print_r('$old_person_update: ');
-		var_dump($old_person_update);
-		print_r('</pre>');
-		print_r('<pre>');
-		print_r('$new_person_update: ');
-		var_dump($new_person_update);
-		print_r('</pre>');
+    	#print_r('<pre>');
+		#print_r('$old_person_update: ');
+		#var_dump($old_person_update);
+		#print_r('</pre>');
+		#print_r('<pre>');
+		#print_r('$new_person_update: ');
+		#var_dump($new_person_update);
+		#print_r('</pre>');
 
     	$old_person_stmt = $database->prepare($old_person_update);
     	$new_person_stmt = $database->prepare($new_person_update);
@@ -100,10 +100,10 @@ $stmt = $database->prepare($q);
 try {
 	$stmt->execute();
 	$entry = $stmt->fetch();
-	print_r('<pre>');
-    print_r('$entry: ');
-    var_dump($entry);
-    print_r('</pre>');
+	#print_r('<pre>');
+    #print_r('$entry: ');
+    #var_dump($entry);
+    #print_r('</pre>');
 
 } catch (PDOException $e) {
     echo '<div data-alert class="alert-box alert">Something went wrong!<br>';
@@ -116,23 +116,23 @@ $current_person_q = 'SELECT id, first_name, middle_name, last_name FROM person W
 $current_person_stmt = $database->prepare($current_person_q);
 $current_person_stmt->execute();
 $current_person = $current_person_stmt->fetch();
-print_r('<pre>');
-print_r('$current_person: ');
-var_dump($current_person);
-print_r('</pre>');
+#print_r('<pre>');
+#print_r('$current_person: ');
+#var_dump($current_person);
+#print_r('</pre>');
 
 $current_graveyard_q = 'SELECT id, name FROM graveyard WHERE id=' . $entry['graveyard_id'];
 $current_graveyard_stmt = $database->prepare($current_graveyard_q);
 $current_graveyard_stmt->execute();
 $current_graveyard = $current_graveyard_stmt->fetch();
-print_r('<pre>');
-print_r('$current_graveyard_q: ');
-var_dump($current_graveyard_q);
-print_r('</pre>');
-print_r('<pre>');
-print_r('$current_graveyard: ');
-var_dump($current_graveyard);
-print_r('</pre>');
+#print_r('<pre>');
+#print_r('$current_graveyard_q: ');
+#var_dump($current_graveyard_q);
+#print_r('</pre>');
+#print_r('<pre>');
+#print_r('$current_graveyard: ');
+#var_dump($current_graveyard);
+#print_r('</pre>');
 
 $q_1 = 'SELECT id, first_name, middle_name, last_name, plot_id FROM person ORDER BY id';
 $q_2 = 'SELECT id, name FROM graveyard ORDER BY id';
