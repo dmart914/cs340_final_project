@@ -7,7 +7,7 @@
           <div class="large-6 columns">
             <p>
               <strong>Authors:</strong><br>
-              Lucia Blackwell - blackwlu@oregonstate.edu
+              Lucia Blackwell - blackwlu@oregonstate.edu<br>
               Dave Martinez - martind2@oregonstate.edu
             </p>
           </div>
