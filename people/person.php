@@ -19,13 +19,16 @@
 		$graveyard_name = "Unknown";
 		$plot_x = "";
 		$plot_y = "";
+		$family_id = "";
+		$family_name = "Unknown";
 
 		$statement = $database->prepare(
 			'SELECT *, p.id AS person_id, plot.id AS plot_id, g.id AS g_id,
-				g.name AS g_name
+				g.name AS g_name, f.id AS f_id, f.name AS f_name
 		 	 FROM person AS p
 		 	 	LEFT JOIN plot ON p.plot_id = plot.id
 		 	 	LEFT JOIN graveyard g ON plot.graveyard_id = g.id
+		 	 	LEFT JOIN family f ON p.family_id = f.id
 			 WHERE p.id= :id');
 		$statement->bindParam(":id", $_GET["id"]);
 		$statement->execute();
@@ -73,6 +76,14 @@
 			if(isset($row['y_coord']))
 			{
 				$plot_y = ucfirst($row['y_coord']);
+			}
+			if(isset($row['f_id']))
+			{
+				$family_id = $row['f_id'];
+			}
+			if(isset($row['f_name']))
+			{
+				$family_name = $row['f_name'];
 			}
 		}
 
@@ -126,6 +137,20 @@
 						else
 						{
 							echo "Unknown";
+						}
+					echo "</dd>";
+
+					echo "<dt>Member of:</dt>";
+					echo "<dd>";
+						if(strlen($family_id) > 0)
+						{
+							echo "<a href='../families/family.php?id=".$family_id."'>";
+							echo "The ".$family_name." Family";
+							echo "</a>";
+						}
+						else
+						{
+							echo "No family listed.";
 						}
 					echo "</dd>";
 
